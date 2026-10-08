@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AMAZONA | Global Asset &amp; Detail Page Hub</title>
+  <meta name="description" content="Preview and download Amazona freeze-dried parrot treat detail pages in Korean, English and Japanese.">
+  <meta name="theme-color" content="#F5F6F2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E1310" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="AMAZONA Global Asset & Detail Page Hub">
+  <meta property="og:description" content="Preview and download Amazona product detail pages in KO, EN and JA.">
+  <meta property="og:image" content="./assets/logo.png">
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="visually-hidden" href="#app">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#/" aria-label="AMAZONA home">
+        <img class="brand-logo" src="./assets/logo.png" alt="AMAZONA" width="56" height="40">
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-title" id="brand-title">GLOBAL ASSET &amp; DETAIL PAGE HUB</span>
+      </a>
+      <nav class="lang-switch" id="lang-switch" aria-label="Language"></nav>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1" aria-live="polite"></main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p id="footer-note"></p>
+      <p id="footer-copy"></p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+  <script src="./config.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
