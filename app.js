@@ -666,6 +666,22 @@
     lastKey = key;
   }
 
+  // Phones: hide the sticky header + viewer bar while scrolling down, show on scroll up.
+  (function headroom() {
+    const mq = window.matchMedia("(max-width: 899px)");
+    let lastY = window.scrollY;
+    function update() {
+      const y = window.scrollY;
+      const dy = y - lastY;
+      if (!mq.matches || y < 80) document.body.classList.remove("chrome-hidden");
+      else if (dy > 6) document.body.classList.add("chrome-hidden");
+      else if (dy < -6) document.body.classList.remove("chrome-hidden");
+      if (Math.abs(dy) > 6 || y < 80) lastY = y;
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("hashchange", () => document.body.classList.remove("chrome-hidden"));
+  })();
+
   window.addEventListener("hashchange", () => render({ keepScroll: true }));
   window.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;

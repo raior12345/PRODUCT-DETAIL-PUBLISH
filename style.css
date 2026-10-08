@@ -831,3 +831,20 @@ body[data-view="viewer"]::after { background: color-mix(in srgb, var(--bg) 95%, 
       color-mix(in srgb, var(--bg) 60%, transparent) 100%);
   }
 }
+
+/* Hub preview card, single-column widths: fan sits below the copy instead of under it */
+@media (max-width: 1023px) {
+  .action { min-height: 0; justify-content: flex-start; gap: 28px; }
+  .fan {
+    position: relative; right: auto; bottom: auto;
+    width: min(100%, 420px); height: auto; aspect-ratio: 10 / 6;
+    margin: 0 auto -96px; align-self: center;
+  }
+}
+
+/* Phones: header + viewer bar slide away while scrolling down, return on scroll up */
+@media (max-width: 899px) {
+  .site-header, .viewer-bar { transition: transform .35s var(--ease); will-change: transform; }
+  body.chrome-hidden .site-header { transform: translateY(-100%); }
+  body.chrome-hidden .viewer-bar { transform: translateY(calc(-100% - var(--header-h))); }
+}
