@@ -92,7 +92,13 @@
     const a = assetOf(lang, pid);
     return a && a.files && a.files[0] ? a.files[0].id : "";
   };
-  const pVars = (p) => `--p-color:${p.color};--p-panel:${p.panel};--p-ground:${p.ground};--p-ink:color-mix(in srgb, ${p.color} 30%, #0b0b0b)`;
+  // Mix a hex color toward near-black (no CSS color-mix, for older tablet browsers).
+  const darken = (hex, keep) => {
+    const n = parseInt(hex.slice(1), 16);
+    const ch = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((c) => Math.round(c * keep + 11 * (1 - keep)));
+    return `rgb(${ch.join(",")})`;
+  };
+  const pVars = (p) => `--p-color:${p.color};--p-panel:${p.panel};--p-ground:${p.ground};--p-ink:${darken(p.color, 0.3)}`;
 
   function parseRoute() {
     const raw = location.hash.replace(/^#\/?/, "");
